@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/gwc.css">
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="header-inner common">
+                <div class="header-log">
+                    <a href="#" title="小米官网">小米官网</a>
+                </div>
+                <div class="header-title">
+                    <h2>我的购物车</h2>
+                    <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+                </div>
+                <div class="topbar-info">
+                    <a href="./denglu.html" class="link">登录</a>
+                    <span>|</span>
+                    <a href="./zhuce.html" class="link">注册</a>
+                </div>
+            </div>
+        </div>
+        <!-- 中间 -->
+        <div class="main">
+            <div class="common">
+                <div class="main-top">
+                    <!-- 标题 -->
+                    <div class="list-head clearfix">
+                        <!-- 全选 -->
+                        <div class="col col-check">
+                            <input readonly="readonly" class="checked">
+                            全选
+                        </div>
+                        <!-- 图片 -->
+                        <div class="col col-img">&nbsp;</div>
+                        <!-- 商品名称 -->
+                        <div class="col col-name">商品名称</div>
+                        <!-- 单价 -->
+                        <div class="col col-price">单价</div>
+                        <!-- 数量 -->
+                        <div class="col col-num">数量</div>
+                        <!-- 小计 -->
+                        <div class="col col-total">小计</div>
+                        <!-- 操作 -->
+                        <div class="col col-action">操作</div>
+                    </div>
+                    <!-- 内容 -->
+                    <div class="item-box">
+                       
+                    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./js/jquery1.12.4.min.js"></script>
+    <script>
+     $('.checked').on('click',function(){
+         $('.checked').css('background-position', '0 -129px')
+     })
+     
+    
+        if (localStorage.getItem('zhang')) {
+            var zhang = JSON.parse(localStorage.getItem('zhang'))
+            if (zhang.length > 0) {
+                var html = "";
+                zhang.forEach(function (item) {
+                    html+=` <div class="item-row clearfix">
+                            <div class="col col-check">
+                                <input readonly="readonly" class="checked">
+                            </div>
+                            <div class="col col-img">
+                                <a href="#">
+                                    <img src="${item.img}"
+                                        alt="" width="80px" height="80px">
+                                </a>
+                            </div>
+                            <div class="col col-name">
+                                <h3 class="name">
+                                    <a href="#">${item.text}</a>
+                                </h3>
+                            </div>
+                            <div class="col col-price"><span>${item.price}</span>元</div>
+                            <div class="col col-num">
+                                <div class="chang-goods-num">
+                                    <a href="#" data-jian>-</a>
+                                    <input type="text" data-num value="${item.num}">
+                                    <a href="#" data-jia>+</a>
+                                </div>
+                            </div>
+                            <div data-v-t class="col col-total ">
+                                ${item.total}元
+                            </div>
+                            <div class="col col-action">
+                                <a href="#" title="删除" class="del" code="${item.code}">
+                                    X
+                                </a>
+                            </div>
+                        </div>`
+                })
+                $('.item-box').html(html);
+            }
+        }else{
+                $('.item-box').html(`<p data-pp><a href="./xiaomi.html">您的购物车是空的去主页逛逛吧</a></p>`)
+        }
+       
+    
+        // 点击a[data-jia]
+        $('a[data-jia]').on('click',function(){
+            var that=$(this);
+            var num=$('input[data-num]').val();
+            num ++;
+            $('input[data-num]').val(num);
+            var zhang = JSON.parse(localStorage.getItem('zhang'))
+           var code = $('.del').attr('code');
+           zhang.forEach(function(item){
+               if(code==item.code){
+                   item.num=num;
+                   item.total=num*item.price;
+                   that.parent().parent().next().text(item.total+"元")
+                   return;
+               }
+           },$(this));
+           zhang=JSON.stringify(zhang);
+           localStorage.setItem('zhang',zhang);
+        })
+        
+        // 点击a[data-jian]
+         $('a[data-jian]').on('click',function(){
+            var that=$(this);
+            var num=$('input[data-num]').val();
+            num --;
+            if(num<1){
+                num=1;
+            }
+            $('input[data-num]').val(num);
+           var zhang = JSON.parse(localStorage.getItem('zhang'))
+           var code = $('.del').attr('code');
+           zhang.forEach(function(item){
+               if(code==item.code){
+                   item.num=num;
+                   item.total=num*item.price;
+                   that.parent().parent().next().text(item.total+"元")
+                   return;
+               }
+           },$(this));
+           zhang=JSON.stringify(zhang);
+           localStorage.setItem('zhang',zhang);
+        })
+       
+       
+        //删除购物车商品
+        $('.del').on('click',function(){
+            var code = $('.p-del').attr('code')
+            zhang.forEach(function(item,index){
+                if(code==item.code){
+                    zhang.splice(index,1)
+                    return;
+                }
+            })
+            var jaonStr = JSON.stringify(zhang);
+            localStorage.setItem('zhang',jaonStr)
+            localStorage.clear();
+            $(this).parent().parent().remove();
+            
+            alert('删除成功')
+                $('.item-box').html(`<p data-pp><a href="./cart.html">您的购物车是空的去主页逛逛吧</p>`)
+          
+        })
+    
+     
+        
+    </script>
+</body>
+</html>

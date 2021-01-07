@@ -146,8 +146,8 @@
 }
 .subnav_logo{
     float: left;
-    width: 62px;
-    height: 55px;
+    width: 48px;
+    height: 48px;
     margin-top: 22px;
     background: orangered;
     text-align: center;
@@ -156,8 +156,41 @@
     position: relative;
     
 }
-.subnav_logo:hover .subnav_logos{
-    /* display: block; */
+.subnav_logo a{
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    text-indent: -9999em;
+    background-color: #ff6700;
+    overflow: hidden;
+}
+.subnav_logo a::before{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: "";
+    width: 48px;
+    height: 48px;
+    transition: all .2s;
+    background: url(https://s02.mifile.cn/assets/static/image/mi-logo.png) no-repeat 50% 50%;
+}
+.subnav_logo a::after{
+    position: absolute;
+    top: 0px;
+    left: -55px;
+    content: "";
+    width: 48px;
+    height: 48px;
+    transition: all .2s;
+    background: url(https://s02.mifile.cn/assets/static/image/mi-home.png) no-repeat 50% 50%;
+}
+.subnav_logo a:hover:after,.subnav_logo a:hover:before{
+        transform: translate3d(55px,0,0);
+}
+
+/* .subnav_logo:hover .subnav_logos{
+    /* display: block; 
     opacity: 1;
     left: 0;
     transition: all .3s; 
@@ -180,7 +213,7 @@
     position: absolute;
     top: -22px;
     left: -62px;
-    /* display: none; */
+     display: none; 
     opacity: 0;
     transition: all .3s ;
 z-index: 1;
@@ -195,7 +228,7 @@ z-index: 1;
     line-height: 55px;
     opacity: 1;
    
-}
+} */
 .subnav_nav{
     width: 800px;
     height: 100px;
@@ -326,7 +359,7 @@ z-index: 1;
     background: rgba(105,101,101,.6);    /* display: none; */
     position: absolute;
     top: 88px;
-    left: -92px;
+    left: -78px;
     z-index: 0;
     width: 234px;
     height: 460px;

@@ -158,12 +158,8 @@ var mySwiper1 = new Swiper('#swiper1', {
         timer = setInterval(show,1000);
     }
     
-    
-    // 不是所有人都能进购物车，只有登录或者注册成功的人才能进入购物
-        // if(localStorage.getItem('name'=="")){
-           
-        //     location.href = "./denglu.html"
-
-        // }
+ $('.tz').click(function(){
+     location.href = "./xqy.html"
+ })   
              
 

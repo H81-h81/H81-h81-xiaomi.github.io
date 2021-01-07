@@ -1,0 +1,213 @@
+/* 版心 */
+.common{
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* 头部 */
+.header{
+    font-size: 12px;
+    border-bottom: 2px solid #ff6700;
+    background: #fff;
+    color: #b0b0b0;
+    position: relative;
+    z-index: 10;
+    height: 100px;
+}
+.header-log{
+    float: left;
+    width: 62px;
+    margin-top: 22px;
+}
+.header-log a{
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    text-indent: -9999em;
+    background-color: #ff6700;
+    overflow: hidden;
+}
+.header-log a::before{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: "";
+    width: 48px;
+    height: 48px;
+    transition: all .2s;
+    background: url(https://s02.mifile.cn/assets/static/image/mi-logo.png) no-repeat 50% 50%;
+}
+.header-log a::after{
+    position: absolute;
+    top: 0px;
+    left: -55px;
+    content: "";
+    width: 48px;
+    height: 48px;
+    transition: all .2s;
+    background: url(https://s02.mifile.cn/assets/static/image/mi-home.png) no-repeat 50% 50%;
+}
+.header-log a:hover:after,.header-log a:hover:before{
+        transform: translate3d(55px,0,0);
+}
+.header-title{
+    float: left;
+    margin-top: 26px;
+    height: 48px;
+}
+.header-title h2{
+    float: left;
+    line-height: 48px;
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 400;
+    color: #424242;
+}
+.header-title p{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 20px;
+    margin-left: 15px;
+    color: #757575;
+}
+.header-inner .topbar-info{
+    position: relative;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+}
+.header-inner .topbar-info .link{
+    padding: 0 5px;
+    text-align: center;
+}
+/* 中间 */
+.main{
+    padding: 38px 0;
+    background: #f5f5f5;
+    min-height: 500px;
+}
+.main-top{
+    background: #fff;
+    min-height: 750px;
+}
+.main-top .list-head{
+    height: 70px;
+    line-height: 70px;
+    padding-right: 26px;
+    color: #424242;
+}
+.main-top  .col{
+    float: left;
+}
+.main-top .col-check{
+    width: 110px;
+}
+.col-check input{
+    background: url(https://res.vmallres.com/20201208/staticpc/img/icon-header.c4189e7.png) no-repeat;
+    border: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-position: -18px -129px;
+    vertical-align: text-top;
+    color: hsla(0,0%,100%,0);
+    font-size: 0;
+    margin-right: 11px;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.main-top .col-img{
+    width: 120px;
+}
+.main-top  .col-name{
+    width: 380px;
+}
+.main-top  .col-price{
+    width: 140px;
+    padding-right: 18px;
+    text-align: center;
+    color: #424242;
+}
+.main-top  .col-num{
+    width: 150px;
+    text-align: center;
+    color: #424242;
+}
+.main-top .col-total{
+    width: 120px;
+    padding-right: 81px;
+    text-align: right
+}
+.main-top  .col-action{
+    width: 79px;
+    text-align: center;
+}
+/* 内容 */
+.item-box{
+    padding: 15px 26px 15px 0;
+    border-top: 1px solid #e0e0e0;
+    height: 80px;
+    line-height: 80px;
+}
+
+
+.item-box .item-row .col-img{
+    width: 80px;
+    height: 80px;
+    padding-right: 40px;
+    overflow: hidden;
+}
+.item-box .item-row .col-name .col-name{
+    line-height: 1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.item-box .item-row .col-name a{
+    color: #424242;
+    font-size: 18px;
+}
+.item-box .item-row .col-num .chang-goods-num{
+    width: 148px;
+    height: 38px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    top: 20px;
+    zoom: 1;
+    
+}
+.item-box .item-row .col-num .chang-goods-num a{
+    float: left;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    color: #757575;
+    font-size: 20px;
+    transition: all .3s;
+}
+.item-box .item-row .col-num .chang-goods-num input{
+    float: left;
+    width: 72px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0;
+    border-width: 0;
+    color: #424242;
+    font-size: 16px;
+    text-align: center;
+}
+.item-box p[data-pp]{
+    text-align: center;
+}
+.topbar-info a:hover{
+    color: orangered;
+}
