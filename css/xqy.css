@@ -546,8 +546,8 @@
 .popover{
     height: 26px;
     position: absolute;
-    bottom:-119px;
-    right:228px;
+    bottom:69px;
+    right:142px;
     background-color:#fff;
     display: none;
 }
